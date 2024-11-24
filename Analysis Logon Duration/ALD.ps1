@@ -111,7 +111,6 @@ else {
 Write-Verbose -Message "Internally-parsed Load time = $CUDesktopLoadTime ; $([math]::floor($CUDesktopLoadTime))"
 
 ## All parameters are not mandatory to allow for offline analysis
-## Last modified 1410 GMT 2024/02/05 @guyrleech
 
 ## A mechanism to allow script use offline with saved event logs
 [hashtable]$global:wmiactivityParams = @{ 'ProviderName' = 'Microsoft-Windows-WMI-Activity' }
@@ -166,7 +165,6 @@ $script:vmwareDEMNonBlockingPhases = New-Object -TypeName System.Collections.Gen
 ## need functions running in runspaces to be able to report warnings back to the main thread
 $sharedVariables = [hashtable]::Synchronized(@{ 'Warnings' = (New-Object -TypeName System.Collections.Generic.List[string])})
 
-## https://www.codeproject.com/Articles/18179/Using-the-Local-Security-Authority-to-Enumerate-Us
 $LSADefinitions = @'
     [DllImport("secur32.dll", SetLastError = false)]
     public static extern uint LsaFreeReturnBuffer(IntPtr buffer);
