@@ -2191,12 +2191,12 @@ function Get-LogonDurationAnalysis {
                         $logon | ConvertTo-Json -Depth 99 | Set-Content -Path (Join-Path -Path $global:logsFolder -ChildPath 'logon.json' )
                     }
 
-                    Write-Debug "Required files dumped to `"$logsFolder`". Please zip and email to support@controlup.com"
+                    Write-Debug "Required files dumped to `"$logsFolder`"."
                 }
             }
             else
             {
-                Throw "Failed to retrieve logon session for $UserDomain\$Username from LSASS"
+                Throw "Failed to retrieve logon session for $UserDomain\$Username from (Local Security Authority Subsystem Service)LSASS"
             }
         }
 
